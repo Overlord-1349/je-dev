@@ -1,0 +1,67 @@
+class ES6Node{
+
+    constructor(value=null, nextNode=null){
+        /**
+         * Creates a node
+         * @param   {any}       value       Node value
+         * @param  {ES6Node}    nextNode    Child node
+         */
+        this.value = value;
+        this.nextNode = nextNode;
+    }
+
+}
+
+
+class ES6LinkedList{
+
+    constructor(){
+        this.root = null;
+        this.currentNode = null;
+        this.length = 0;
+    }
+
+    _getParentNode = (parent ,index=null) => {
+        /**
+         * Finds the last node with no child or a node in a given index
+         * @param   {ES6Node}   parent  Parent node, starting from root
+         * @param   {Number}    index   Node index
+         * @return  {ES6Node}           Last node or the node on index provided    
+         */
+        if(parent.nextNode === null){
+            return parent;
+        }
+        return this._getParentNode(parent.nextNode);
+    }
+
+    append = (value) => {
+        /**
+         * Appends a new node to the list
+         * @param   {any}   value  Node value
+         */
+        const newNode = new ES6Node(value);
+        if(this.root)
+            this._getParentNode(this.root).nextNode = newNode;
+        else
+            this.root = newNode;
+    }
+
+    [Symbol.iterator]() {
+        /**
+         * Gets all the list elements
+         */
+        this.currentNode = this.root;
+        return {
+            
+          next: () => { 
+            const node = this.currentNode; 
+            this.currentNode = node ? node.nextNode : null;
+            const value = node ? node.value : null;
+            return {
+                value: value, 
+                done: (node === null)
+            }
+        }
+    };
+    }
+}

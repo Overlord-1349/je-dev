@@ -1,0 +1,7 @@
+.ds-rect-element{
+    fill: white;
+    stroke: blue;
+    stroke-width: 3px;
+    width: 60px;
+    height: 30px;   
+}

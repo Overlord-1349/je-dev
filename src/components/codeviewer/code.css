@@ -1,0 +1,23 @@
+.code-main-container{
+    background-color:#281F1F;/* rgb(30,30,30);*/
+    color: white;/*rgb(156,220,254);*/
+    overflow: auto;
+    font-family: Menlo, Monaco, 'Courier New', monospace;
+    white-space: nowrap;
+}
+
+.js-reserved-word{
+    color: #FD0B11;/*rgb(84,151,213);*/
+    
+}
+.js-reserved-word-2{
+    color: #0498BB;/*rgb(171, 118, 167);*/
+}
+.js-comments{
+    color:green;
+}
+
+.js-special_chars{
+    color: #FFA200;
+}
+
